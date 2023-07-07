@@ -1,3 +1,11 @@
+const weapons = document.querySelectorAll(".weapon-img");
+
+for (let i = 0; i < weapons.length; i++) {
+    weapons[i].addEventListener("click", () => {
+        playRound(getComputerTurn(), i)
+    })
+}
+
 function getComputerTurn() {
     return Math.floor(Math.random() * 3);
 }
