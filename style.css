@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cinzel', serif;
+    color: white;
+}
+
+body {
+    background-color: #3d3d3d;
+}
+
+:root {
+    --cursive: 'Dancing Script', cursive;
+    --darker-background: #403c53;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--darker-background);
+    height: 8em;
+    margin-bottom: 50px;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+#game-info {
+    width: calc(100vw - 4em);
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+#game-info > * {
+    text-align: center;
+}
+
+#selected-weapons {
+    display: flex;
+    justify-content: center;
+    gap: 3em;
+    margin-bottom: 10px;
+}
+
+#selected-weapons > img {
+    background-color: var(--darker-background);
+    height: 100px;
+    width: 100px;
+}
+
+#score {
+    display: flex;
+    justify-content: center;
+    gap: 3em;
+    margin-bottom: 40px;
+}
+
+#score > p {
+    width: 100px;
+}
+
+#weapons {
+    display: flex;
+    justify-content: center;
+    gap: 3em;
+}
+
+#weapons > img {
+    height: 100px;
+    width: 100px;
+    background-color: var(--darker-background);
+}
+
+footer {
+    margin-top: 100px;
+    text-align: center;
+}
