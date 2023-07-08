@@ -16,20 +16,25 @@
     </header>
     <section id="game-info">
         <h2>Choose Your Weapon!</h2>
-        <p>First to score 5 points wins!</p>
+        <p id="game-info-subheading">First to score 5 points wins!</p>
     </section>
     <section id="selected-weapons">
-        <img src="./images/question-mark.png" alt="player selection">
-        <img src="./images/question-mark.png" alt="computer selection">
+        <img id="player-selected-weapon" src="./images/question-mark.png" alt="player selection">
+        <img id="computer-selected-weapon" src="./images/question-mark.png" alt="computer selection">
     </section>
     <section id="score">
-        <p>Player: 0</p>
-        <p>Computer: 0</p>
+        <p class="score-label"></p>
+        <p class="score-label"></p>
     </section>
     <section id="weapons">
         <img class="weapon-img" src="./images/rock.png" alt="rock">
         <img class="weapon-img" src="./images/paper.png" alt="paper">
         <img class="weapon-img" src="./images/scissors.png" alt="scissors">
+    </section>
+    <div class="overlay" id="disappear"></div>
+    <section class="end-game-screen" id="disappear">
+        <p>Game Over!</p>
+        <button id="button">Play Again?</button>
     </section>
     <footer>
         <p>Parker Coyle</p>
