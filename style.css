@@ -12,7 +12,7 @@ body {
 
 :root {
     --cursive: 'Dancing Script', cursive;
-    --darker-background: #403c53;
+    --darker-background: #494561;
 }
 
 header {
@@ -25,7 +25,7 @@ header {
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: clamp(1.6rem, 7vw, 3.5rem);
 }
 
 #game-info {
@@ -34,47 +34,107 @@ h1 {
     margin-bottom: 50px;
 }
 
+h2 {
+    font-size: clamp(1.4rem, 5vw, 2rem);
+}
+
 #game-info > * {
     text-align: center;
+}
+
+#game-info > p {
+    font-size: clamp(0.8rem, 3vw, 1.2rem);
 }
 
 #selected-weapons {
     display: flex;
     justify-content: center;
-    gap: 3em;
+    gap: clamp(3em, 7vw, 5em);
     margin-bottom: 10px;
 }
 
 #selected-weapons > img {
+    padding: 0.8em;
+    border-radius: 0.7em;
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.4);
     background-color: var(--darker-background);
-    height: 100px;
-    width: 100px;
+    height: clamp(100px, 20vw, 150px);
+    width: clamp(100px, 20vw, 150px);
 }
 
 #score {
     display: flex;
     justify-content: center;
-    gap: 3em;
+    gap: clamp(3em, 7vw, 5em);
     margin-bottom: 40px;
 }
 
 #score > p {
-    width: 100px;
+    text-align: center;
+    font-size: clamp(0.8rem, 3vw, 1.2rem);
+    width: clamp(100px, 20vw, 150px);
 }
 
 #weapons {
     display: flex;
     justify-content: center;
-    gap: 3em;
+    gap: clamp(1em, 6vw, 3.5em);
 }
 
 #weapons > img {
-    height: 100px;
-    width: 100px;
+    padding: 0.2em;
+    border-radius: 0.7em;
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.4);
+    height: clamp(80px, 20vw, 150px);
+    width: clamp(80px, 20vw, 150px);
     background-color: var(--darker-background);
 }
 
 footer {
     margin-top: 100px;
     text-align: center;
+}
+
+#game-over {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    height: 200px;
+    width: 300px;
+    background-color: var(--darker-background);
+    border-radius: 2em;
+    z-index: 2;
+}
+
+#game-over > p {
+    padding-top: 1em;
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+#game-over > button {
+    background-color: transparent;
+    font-size: 1.4rem;
+    border: 0.3em solid rgb(255, 255, 255);
+    border-radius: 1em;
+    padding: 0.8em;
+}
+
+#overlay {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+#disappear {
+    display: none;
 }
