@@ -12,7 +12,7 @@ body {
 
 :root {
     --cursive: 'Dancing Script', cursive;
-    --darker-background: #494561;
+    --darker-background: hsl(165, 17%, 33%);
 }
 
 header {
@@ -91,10 +91,26 @@ h2 {
 }
 
 footer {
+    display: flex;
+    align-items: center;
+    gap: 1em;
     position: fixed;
     bottom: 0.8em;
     transform: translateX(-50%);
     left: 50%;
+}
+
+footer > p {
+    white-space: nowrap;
+    font-size: clamp(0.6rem, 2vw, 1.2rem);
+}
+
+footer > button {
+    border: none;
+    border-radius: 0.5em;
+    background-color: var(--darker-background);
+    font-size: clamp(0.6rem, 2vw, 1.2rem);
+    padding: 0.4em;
 }
 
 #game-over {
