@@ -1,3 +1,4 @@
+const root = document.querySelector(':root');
 const weapons = document.querySelectorAll(".weapon-img");
 const score = Array.from(document.querySelectorAll(".score-label"));
 const gameInfo = document.querySelector('h2');
@@ -8,6 +9,14 @@ const endGameButton = document.querySelector('#button');
 const endGameScreen = document.querySelector('.end-game-screen');
 const overlay = document.querySelector('.overlay');
 
+const changeColorButton = document.querySelector('#change-color');
+let hue = 165;
+
+//Color Change mode
+changeColorButton.addEventListener("click", () => {
+    hue += 60;
+    root.style.setProperty('--darker-background', `hsl(${hue}, 17%, 33%)`)
+})
 let computerScore = 0;
 let playerScore = 0;
 
