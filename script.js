@@ -17,16 +17,23 @@ changeColorButton.addEventListener("click", () => {
     hue += 60;
     root.style.setProperty('--darker-background', `hsl(${hue}, 17%, 33%)`)
 })
-let computerScore = 0;
-let playerScore = 0;
+
+const player = {
+    playerScore: 0,
+}
+
+const computer = {
+    computerScore: 0,
+    getTurn: function(){return Math.floor(Math.random() * 3)}
+}
 
 for (let i = 0; i < weapons.length; i++) {
     weapons[i].addEventListener("click", () => {
-        const computer = getComputerTurn();
-        playRound(computer, i)
-        if (computer == 0) computerSelectedWeapon.src = "./images/rock.png";
-        if (computer == 1) computerSelectedWeapon.src = "./images/paper.png";
-        if (computer == 2) computerSelectedWeapon.src = "./images/scissors.png";
+        const getComputerTurn = computer.getTurn();
+        playRound(getComputerTurn, i)
+        if (getComputerTurn == 0) computerSelectedWeapon.src = "./images/rock.png";
+        if (getComputerTurn == 1) computerSelectedWeapon.src = "./images/paper.png";
+        if (getComputerTurn == 2) computerSelectedWeapon.src = "./images/scissors.png";
     })
 }
 
@@ -37,18 +44,18 @@ weapons[1].addEventListener("click", () => {playerSelectedWeapon.src = "./images
 weapons[2].addEventListener("click", () => {playerSelectedWeapon.src = "./images/scissors.png"});
 
 const updateGame = () => {
-    score[0].innerText = "Player: " + playerScore;
-    score[1].innerText = "Computer: " + computerScore;
+    score[0].innerText = "Player: " + player.playerScore;
+    score[1].innerText = "Computer: " + computer.computerScore;
 
-    if (computerScore > 4 || playerScore > 4) {
+    if (computer.computerScore > 4 || player.playerScore > 4) {
         endGame();
     }
 }
 updateGame();
 
 function endGame() {
-    computerScore = 0;
-    playerScore = 0;
+    computer.computerScore = 0;
+    player.playerScore = 0;
     overlay.setAttribute("id", "overlay");
     endGameScreen.setAttribute("id", "game-over");
     updateGame();
@@ -62,20 +69,18 @@ function resetGame() {
     computerSelectedWeapon.src = "./images/question-mark.png";
 }
 
-const getComputerTurn = () => {return Math.floor(Math.random() * 3);}
-
-function playRound(computer, player) {
+function playRound(computerWeapon, playerWeapon) {
     const playerWinConditions = [[2, 0], [0, 1], [1, 2]];
     const computerWinConditions = [[0, 2], [1, 0], [2, 1]];
-    const result = [computer, player];
+    const result = [computerWeapon, playerWeapon];
 
     for (let i = 0; i < 3; i++) {
         if (playerWinConditions[i].join("") === result.join("")) {
-            playerScore++;
+            player.playerScore++;
             gameInfo.innerText = "You Won!";
             break;
         } else if (computerWinConditions[i].join("") === result.join("")) {
-            computerScore++;
+            computer.computerScore++;
             gameInfo.innerText = "You Lost!";
             break;
         } else {
